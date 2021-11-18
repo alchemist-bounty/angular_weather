@@ -11,16 +11,16 @@
         <div data-test-id="weather-details" class="card-text pt-10 layout-row justify-content-between">
             <div class="mt-20 outlined">
               <button class="icon-only mx-2">
-                <i class="material-icons">wb_sunny</i>
+                <i class="material-icons">{{cityData.name}}</i>
               </button>
-              <span data-test-id="output-temperature" class="temperature"></span>
+              <span data-test-id="output-temperature" class="temperature">{{cityData.temperature}}</span>
             </div>
             <div class="mr-15 mb-15">
               <div data-test-id="output-wind" class="mt-20">
-                Wind:
+                {{cityData.wind}}
               </div>
               <div data-test-id="output-humidity" class="mt-20">
-                Humidity:
+                {{cityData.humidity}}
               </div>
             </div>
         </div>
