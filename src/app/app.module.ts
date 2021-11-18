@@ -1,32 +1,29 @@
+import {BrowserModule} from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
-
-import { WeatherDetails } from './weatherDetails/weatherDetails.component';
-//Angular Router Module
-import { RouterModule, Router } from '@angular/router';
-import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {WeatherFinder} from './weatherFinder/weatherFinder.component';
+import {RouterModule} from '@angular/router';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherDetails
+    WeatherFinder
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
-    RouterTestingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path:'', component: WeatherDetails }
+      {path: '', component: WeatherFinder}
     ])
-  ],
-  exports: [
-    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas : [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}

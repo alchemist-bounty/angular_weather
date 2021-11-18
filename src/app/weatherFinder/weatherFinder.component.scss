@@ -4,7 +4,7 @@ section {
 }
 
 .card-text {
-  width: 300px;
+  width: 400px;
 }
 
 .weather-data {
@@ -14,4 +14,8 @@ section {
 
 .temperature {
   font-size: 35px;
+}
+
+.material-icons {
+  color: var(--brand-color);
 }
