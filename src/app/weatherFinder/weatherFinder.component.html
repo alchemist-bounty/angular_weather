@@ -1,23 +1,23 @@
 <div class="weather-data layout-column align-items-center mt-50">
   <section class="layout-row align-items-center justify-content-center">
-      <input type="text" class="large ml-30" placeholder="Dallas" data-test-id="app-input" [ngModel] = "city" />
-      <button class="" data-test-id="submit-button" ng-click ="search()">Search</button>
+      <input type="text" class="large ml-30" placeholder="Dallas" data-test-id="app-input" [(ngModel)] = "city" />
+      <button class="" data-test-id="submit-button" (click) ="search()">Search</button>
   </section>
 
   <section class="mt-20 layout-row align-items-center justify-content-center">
     <div class="card outlined">
         <div *ngIf="cityData && city" data-test-id="weather-details" class="card-text pt-10 layout-row justify-content-between">
             <div class="mt-20 outlined">
-              <i data-test-id="icon-sunny" class="material-icons">wb_sunny {{cityData.name}}</i>
-              <i data-test-id="icon-cold" class="material-icons">ac_unit</i>
-              <span data-test-id="result-temperature" class="temperature">{{cityData.temperature}}</span>
+              <i *ngIf="isSunny==true" data-test-id="icon-sunny" class="material-icons"></i>
+              <i *ngIf="isSunny!=true" data-test-id="icon-cold" class="material-icons"></i>
+              <span data-test-id="result-temperature" class="temperature">{{cityData.weather}}</span>
             </div>
             <div class="mr-15 mb-15">
               <div data-test-id="result-wind" class="mt-20">
-                Wind: {{cityData.wind}}
+                {{cityData.status[0]}}
               </div>
               <div data-test-id="result-humidity" class="mt-20">
-                Humidity: {{cityData.humidity}}
+                {{cityData.status[1]}}
               </div>
             </div>
         </div>
