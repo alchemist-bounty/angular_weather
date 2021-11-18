@@ -3,7 +3,7 @@
 
   <section class="layout-row align-items-center justify-content-center">
     <label>Enter City: </label>
-    <input type="text" class="large ml-30" placeholder="Seattle" data-test-id="app-input"/>
+    <input type="text" class="large ml-30" placeholder="Seattle" data-test-id="app-input" [ngModel] = "city" (ngModelChange) = "cityChange($event)"/>
   </section>
 
   <section class="mt-20 layout-row align-items-center justify-content-center">

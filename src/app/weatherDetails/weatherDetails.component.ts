@@ -7,10 +7,19 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 
 export class WeatherDetails implements OnInit {
-  @Input() weatherData: data[];
+  @Input() weatherData: data[] =[];
+  city: string = '';
 
   ngOnInit() {
+    console.log(this.weatherData);
+  }
 
+  cityChange(value: string) {
+    let cityData = this.weatherData.find(function(obj) {
+      return (obj.name.toLowerCase() === value.toLowerCase());
+    });
+    console.log(cityData);
+    this.city = value;
   }
 }
 
