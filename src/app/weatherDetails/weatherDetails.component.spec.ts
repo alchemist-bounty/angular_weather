@@ -3,22 +3,23 @@ import {WeatherDetails} from './weatherDetails.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {FormsModule} from '@angular/forms';
 let Bluebird = require('bluebird');
+// import Bluebird from 'bluebird';
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('WeatherDetails', () => {
   let component: WeatherDetails;
   let fixture: ComponentFixture<WeatherDetails>;
-  let appInput;
+  let appInput: any;
   let weatherDetailsDiv;
 
-  const pushValue = async (value, fixture) => {
+  const pushValue = async (value: any, fixture: any) => {
     appInput.value = value;
     appInput.dispatchEvent(new Event('change'));
     appInput.dispatchEvent(new Event('input'));
     await fixture.whenStable();
   };
 
-  const getByTestId = (testId: string, compiled) => {
+  const getByTestId = (testId: string, compiled: any) => {
     return compiled.querySelector(`[data-test-id="${testId}"]`);
   };
 
@@ -36,7 +37,7 @@ describe('WeatherDetails', () => {
       .compileComponents();
   }));
 
-  const factory = (weatherData) => {
+  const factory = (weatherData: any) => {
     const fixture: ComponentFixture<WeatherDetails> = TestBed.createComponent(WeatherDetails);
     const component: WeatherDetails = fixture.componentInstance;
     component.weatherData = weatherData;
@@ -116,7 +117,7 @@ describe('WeatherDetails', () => {
 
     appInput = getByTestId('app-input', compiled);
 
-    Bluebird.each(cities, async (city) => {
+    Bluebird.each(cities, async (city: any) => {
       await pushValue(city, fixture);
       await fixture.detectChanges();
       const output = weatherData.filter(e => e.name.toLowerCase() === city.toLowerCase())[0];
@@ -136,7 +137,7 @@ describe('WeatherDetails', () => {
 
     appInput = getByTestId('app-input', compiled);
 
-    Bluebird.each(nonExistingCities, async (city) => {
+    Bluebird.each(nonExistingCities, async (city: any) => {
       await pushValue(city, fixture);
       await fixture.detectChanges();
       expect(getByTestId('weather-details', compiled)).toBeFalsy();

@@ -17,14 +17,14 @@
             </div>
             <div class="mr-15 mb-15">
               <div data-test-id="output-wind" class="mt-20">
-                {{cityData.wind}}
+                Wind: {{cityData.wind}}
               </div>
               <div data-test-id="output-humidity" class="mt-20">
-                {{cityData.humidity}}
+                Humidity: {{cityData.humidity}}
               </div>
             </div>
         </div>
-        <div data-test-id="no-results" class="card-text" *ngIf="!cityData">No Results Found</div>
+        <div data-test-id="no-results" class="card-text" *ngIf="city && !cityData">No Results Found</div>
     </div>
   </section>
 </div>
